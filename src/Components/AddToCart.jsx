@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { addItem } from "../Utils/Redux/CartSlice";
+import { addItem } from "../utils/Redux/CartSlice";
 import { toast } from "react-toastify";
 const AddToCart = ({
   item,
