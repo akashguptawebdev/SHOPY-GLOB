@@ -3,16 +3,12 @@ import { Link, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import AddToCart from "../Components/AddToCart";
 import NavigateBack from "../Components/NavigateBack";
-import SearchBar from "../Components/SearchBar";
 
 const ProductDetailsPage = () => {
   const { id } = useParams(); // Destructured useParams for readability
   const data = useSelector((store) => store.Product.products);
   const [filterproduct, setfilterproduct] = useState(null); // Initialized with null for consistency
-  if (!id) {
-    console.log("not id");
-  }
-  console.log(data);
+
   useEffect(() => {
     if (data.length > 0) {
       const foundBook = data.find((item) => item.id === parseInt(id)); // Ensured strict equality with parseInt
@@ -62,29 +58,26 @@ const ProductDetailsPage = () => {
                   className=" w-full rounded-lg sm:w-80"
                 />
               </div>
-              <div className="hidden  sm:block w-full  ">
-                <div className=" flex justify-center items-center mx-auto  gap-4 bottom-0">
-                  <div className="">
-                    <Link to="/CartPage">
-                      <AddToCart
-                        item={filterproduct}
-                        padingX="6"
-                        paddingY="4"
-                        textSize="24px"
-                        Bgcolor="bg-yellow-400"
-                        text="Buy Now"
-                      />
-                    </Link>
-                  </div>
-                  <div className="">
-                    <AddToCart
-                      item={filterproduct}
-                      padingX="6"
-                      paddingY="4"
-                      textSize="12px"
-                    />
-                  </div>
-                </div>
+              <div className="hidden  sm:block w-full ">
+               <div className="flex">
+               <div className="w-full">
+              <Link to="/CartPage">
+                <AddToCart
+                  item={filterproduct}
+                  Bgcolor="bg-yellow-400"
+                  text="Buy Now"
+                  paddingY="4"
+                  paddingX
+                />
+              </Link>
+            </div>
+            <div className="w-full">
+              <AddToCart
+                item={filterproduct}
+                paddingY="4"
+              />
+            </div>
+               </div>
               </div>
             </div>
           </div>
@@ -199,25 +192,22 @@ const ProductDetailsPage = () => {
             </div>
           </section>
 
-          <div className=" fixed sm:hidden gap-4 bottom-0 grid grid-cols-2 w-full">
+          <div className=" flex fixed bottom-0 block sm:hidden w-full">
             <div className="w-full">
               <Link to="/CartPage">
                 <AddToCart
                   item={filterproduct}
-                  padingX="12"
-                  paddingY="4"
-                  textSize="24px"
                   Bgcolor="bg-yellow-400"
                   text="Buy Now"
+                  paddingY="4"
+                  paddingX
                 />
               </Link>
             </div>
             <div className="w-full">
               <AddToCart
                 item={filterproduct}
-                padingX="12"
                 paddingY="4"
-                textSize="12px"
               />
             </div>
           </div>

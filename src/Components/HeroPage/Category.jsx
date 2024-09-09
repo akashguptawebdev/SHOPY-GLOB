@@ -9,7 +9,7 @@ const Category = ({ products }) => {
       (item, index, self) =>
         index === self.findIndex((p) => p.category === item.category)
     );
-  // console.log(UniqueCategoryProducts);
+  
 
   return (
     <>

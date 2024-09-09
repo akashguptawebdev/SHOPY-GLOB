@@ -1,27 +1,32 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addItem } from "../utils/Redux/CartSlice";
-import { toast } from "react-toastify";
+
 const AddToCart = ({
   item,
-  padingX = "6",
-  paddingY = "2",
-  textSize = "12px",
+  paddingY = "1",
+  paddingX = "4",
   Bgcolor = "bg-red-500",
   text = "ADD TO CART",
 }) => {
   const dispatch = useDispatch();
+  const cartItems = useSelector((state) => state.cart.items);
+  
+  // Check if the item is already in the cart
+  const isInCart = cartItems.some(cartItem => cartItem.id === item.id);
+
   const HandleAddBook = () => {
-    dispatch(addItem(item));
-    toast.success("Item add successfully");
+    if (!isInCart) {
+      dispatch(addItem(item));
+    }
   };
 
   return (
     <button
-      className={`border ${Bgcolor} text-white font-bold  rounded-md py-${paddingY} px-${padingX}  text-[${textSize}]`}
+      className={`border ${Bgcolor} ${isInCart && "bg-white text-black"}  w-full py-${paddingY}`}
       onClick={HandleAddBook}
     >
-      {text}
+      {isInCart ? "In Cart" : text}
     </button>
   );
 };

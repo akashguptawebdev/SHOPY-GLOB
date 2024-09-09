@@ -12,10 +12,12 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import MailIcon from "@mui/icons-material/Mail";
 import ShoppingCartRoundedIcon from "@mui/icons-material/ShoppingCartRounded";
 import SearchBar from "./SearchBar";
+import HomeIcon from "@mui/icons-material/Home";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import SearchProduct from "./SearchProduct";
+import ShoppingBagRoundedIcon from "@mui/icons-material/ShoppingBagRounded";
 
 export default function PrimarySearchAppBar() {
   const Cart = useSelector((store) => store.cart.items);
@@ -88,12 +90,29 @@ export default function PrimarySearchAppBar() {
       onClose={handleMobileMenuClose}
     >
       <MenuItem>
-        <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="error">
-            <MailIcon />
-          </Badge>
-        </IconButton>
-        <p>Messages</p>
+        <Link to="/">
+          <IconButton
+            size="large"
+            aria-label="show 4 new mails"
+            color="inherit"
+          >
+            <HomeIcon />
+          </IconButton>
+          <span>Home</span>
+        </Link>
+      </MenuItem>
+
+      <MenuItem>
+        <Link to="/CategoryProductPage/All">
+          <IconButton
+            size="large"
+            aria-label="show 4 new mails"
+            color="inherit"
+          >
+            <ShoppingBagRoundedIcon />
+          </IconButton>
+          <span>Product</span>
+        </Link>
       </MenuItem>
 
       <MenuItem onClick={handleProfileMenuOpen}>
@@ -133,14 +152,10 @@ export default function PrimarySearchAppBar() {
             component="div"
             sx={{ display: { xs: "none", sm: "block" } }}
           >
-            <Link to="/">
-            SHOPPY GLOB
-            </Link>
+            <Link to="/"><img src="/Brand3.png" alt=""  className="w-40"/> </Link>
           </Typography>
 
           {/* Search */}
-          {/* <SearchBar /> */}
-
           <SearchProduct />
           <Link to="/CartPage" className="block md:hidden">
             <IconButton
@@ -160,21 +175,32 @@ export default function PrimarySearchAppBar() {
               aria-label="show 4 new mails"
               color="inherit"
             >
-              <Badge badgeContent={4} color="error">
-                <MailIcon />
-              </Badge>
+              <Link to="/">
+                <HomeIcon />
+              </Link>
             </IconButton>
             <IconButton
               size="large"
               aria-label="show 17 new notifications"
               color="inherit"
             >
-            <Link to="/CartPage" >
-              <Badge badgeContent={cartLength} color="error">
-                <ShoppingCartRoundedIcon />
-              </Badge>
-            </Link>
+              <Link to="/CartPage">
+                <Badge badgeContent={cartLength} color="error">
+                  <ShoppingCartRoundedIcon />
+                </Badge>
+              </Link>
             </IconButton>
+           
+                <IconButton
+                  size="large"
+                  aria-label="show 4 new mails"
+                  color="inherit"
+                >
+              <Link to="/CategoryProductPage/All">
+                  <ShoppingBagRoundedIcon />
+              </Link>
+                </IconButton>
+            
             <IconButton
               size="large"
               edge="end"
@@ -186,6 +212,8 @@ export default function PrimarySearchAppBar() {
             >
               <AccountCircle />
             </IconButton>
+
+            
           </Box>
         </Toolbar>
       </AppBar>

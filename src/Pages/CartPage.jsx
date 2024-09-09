@@ -74,6 +74,26 @@ const CartPage = () => {
                   </div>
 
                   <div className="flex flex-col justify-between w-full">
+                    {/* Remove Item Button */}
+                    <button
+                        className="text-red-500 flex justify-end hover:text-red-700 transition"
+                        onClick={() => handleRemove(item.id)}
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          strokeWidth="1.5"
+                          stroke="currentColor"
+                          className="w-6 h-6"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M6 18L18 6M6 6l12 12"
+                          />
+                        </svg>
+                      </button>
                     <div>
                       <h2 className="text-lg font-bold text-gray-900">
                         {item.title}
@@ -102,26 +122,7 @@ const CartPage = () => {
                           +
                         </button>
                       </div>
-                      {/* Remove Item Button */}
-                      <button
-                        className="text-red-500 hover:text-red-700 transition"
-                        onClick={() => handleRemove(item.id)}
-                      >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          strokeWidth="1.5"
-                          stroke="currentColor"
-                          className="w-6 h-6"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M6 18L18 6M6 6l12 12"
-                          />
-                        </svg>
-                      </button>
+                      
                     </div>
                     <div className="mt-4">
                       <p className="font-bold text-base text-gray-900">

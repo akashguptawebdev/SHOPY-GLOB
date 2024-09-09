@@ -2,7 +2,6 @@ import React from "react";
 import "./App.css";
 import PrimarySearchAppBar from "./Components/Header";
 import useFetch from "./utils/useFetchData.js";
-import { useSelector } from "react-redux";
 import { Routes, Route, useLocation, useParams } from "react-router-dom";
 import HomePage from "./Pages/HomePage.jsx";
 import Footer from "./Components/Footer.jsx";
@@ -15,7 +14,6 @@ import CategoryProductPage from "./Pages/CategoryProductPage.jsx";
 
 const App = () => {
   const { data, loading, error } = useFetch("https://dummyjson.com/products");
-  const cartItem = useSelector((store) => store.cart.items);
   const location = useLocation();
   const {id} = useParams()
   let path;
