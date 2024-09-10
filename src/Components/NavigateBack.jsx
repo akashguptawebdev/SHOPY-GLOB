@@ -1,6 +1,5 @@
-import React from 'react';
+import React from "react";
 const NavigateBack = () => {
-  
   const handleNavigateBack = () => {
     window.history.back();
   };
@@ -11,7 +10,11 @@ const NavigateBack = () => {
       className="flex items-center text-blue-500 hover:text-blue-700"
     >
       <span className="text-lg">
-        <img src="/left_3514167.png" className="w-6 sm:w-8 m-2" alt="Back to Home" />
+        <img
+          src="/left_3514167.png"
+          className="w-6 sm:w-8 m-2"
+          alt="Back to Home"
+        />
       </span>
     </button>
   );

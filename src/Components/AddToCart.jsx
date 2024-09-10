@@ -11,11 +11,11 @@ const AddToCart = ({
 }) => {
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.items);
-  
-  // Check if the item is already in the cart
-  const isInCart = cartItems.some(cartItem => cartItem.id === item.id);
 
-  const HandleAddBook = () => {
+  // Check if the item is already in the cart
+  const isInCart = cartItems.some((cartItem) => cartItem.id === item.id);
+
+  const handleAddBook = () => {
     if (!isInCart) {
       dispatch(addItem(item));
     }
@@ -23,8 +23,9 @@ const AddToCart = ({
 
   return (
     <button
-      className={`border ${Bgcolor} ${isInCart && "bg-white text-black"}  w-full py-${paddingY}`}
-      onClick={HandleAddBook}
+      className={`border ${Bgcolor} ${isInCart ? "bg-white text-black" : ""} w-full py-${paddingY} px-${paddingX}`}
+      onClick={handleAddBook}
+      disabled={isInCart} // Disables the button if the item is already in the cart
     >
       {isInCart ? "In Cart" : text}
     </button>

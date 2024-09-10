@@ -12,7 +12,6 @@ const CategoryProductPage = () => {
     }
   return (
     <div className=''>
-        {/* <FilterByCategory products={products} params={catName}/> */}
         <FilteredProduct products={products} params={catName}/>
     </div>
   )

@@ -4,9 +4,11 @@ import Box from '@mui/material/Box';
 
 const Loading = () => {
   return (
+    <div className='h-screen w-full flex justify-center items-center'>
     <Box sx={{ display: 'flex' }}>
     <CircularProgress />
   </Box>
+    </div>
   )
 }
 
